@@ -1,6 +1,6 @@
 import random
 
-RAND_MAX = 100000
+RAND_MAX = 200000
 
 def generate_list(number_of_elements):
     list_ = [0] * number_of_elements
