@@ -1,0 +1,33 @@
+from cat import Cat
+from mama import Mama
+from papa import Papa
+from cotiki import Cotiki
+print('Здарова!Чтобы поговорить с членами семьи тебе нужна знать такие плавила:')
+print('Введи цифру соответствующую члену семьи:')
+print('1-Эрика')
+print('2-Мама')
+print('3-Папа')
+print('4 - Вася')
+cat = Cat('Эрика')
+mama = Mama('Мама')
+papa = Papa('Папа')
+cotiki = Cotiki('Вася','Муся')
+print('Введите желаемое количество ответов')
+x = int(input())
+y = int(input())
+if x == 1:
+    for i in range(y):
+        cat.to_answer()
+        print(cat)
+elif x == 2:
+    for i1 in range(y):
+        mama.to_answer()
+        print(mama)
+elif x == 3:
+    for i2 in range(y):
+        papa.to_answer()
+        print(papa)
+elif x == 4:
+    for i in range(y):
+        cotiki.to_answer()
+        print(cotiki)
