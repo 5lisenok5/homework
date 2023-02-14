@@ -1,0 +1,14 @@
+import random
+from random import randint
+from cat import Cat
+import Exception
+class Cotiki(Cat):
+    def __init__(self,name,age,parent):
+        super().__init__(name)
+        self.age = age
+        self.parent = parent
+        assert age > 0, "Невозможный возраст"
+    def __str__(self):
+        return "Имя: % s,возраст: %d,Мама: % s" % (self.name,self.age,self.parent)
+        #super().__str__() + self.name + ' говорит:' + ' Имя моей мамочки - ' + self.parent
+        #"Name: % s, age: % d,self.parent: % s" % (self.name, self.age,self.parent)
