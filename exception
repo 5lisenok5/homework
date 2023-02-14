@@ -1,0 +1,23 @@
+class MyException(Exception):
+    def init(self):
+        print("MyException")
+
+try:
+    print("Enter the number")
+    n = int(input())
+    #raise TypeError from KeyError
+    assert n >= 0, "Negative n"
+    raise MyException
+except ZeroDivisionError:
+    print("Деление на ноль")
+except (KeyError, IndexError):
+    print("Ошибка индексации")
+except MyException:
+    print("MyException")
+    raise
+except Exception:
+    print("Другая ошибка")
+else:
+    print("Нет ошибок")
+finally:
+    print("Выполнить в любом случае")
