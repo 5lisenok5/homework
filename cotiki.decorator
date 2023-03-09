@@ -1,0 +1,19 @@
+import random
+from random import randint
+from cat import Cat
+file = open("razgovor.txt", "w")
+def simple_decorator(func):
+    def new_func(*args):
+        file.write(f"{args[0].name},{func(*args)}")
+        return func(*args)
+    return new_func
+
+class Cotiki(Cat):
+
+    def __init__(self,name,parent):
+        super().__init__(name)
+        self.parent = parent
+
+    @simple_decorator
+    def __str__(self):
+        return self.name + ' говорит:' + ' Имя моей мамочки - ' + self.parent
