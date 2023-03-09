@@ -12,3 +12,4 @@ class Cotiki(Cat):
         return "Имя: % s,возраст: %d,Мама: % s" % (self.name,self.age,self.parent)
         #super().__str__() + self.name + ' говорит:' + ' Имя моей мамочки - ' + self.parent
         #"Name: % s, age: % d,self.parent: % s" % (self.name, self.age,self.parent)
+        #f"{1+1+1}: Name: {self.name},age: {self.age}, parent: {self.parent}"
