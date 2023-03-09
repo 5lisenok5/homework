@@ -1,0 +1,65 @@
+'''
+from string import Template
+class Person:
+    def __init__(self,name_,age_):
+        self.name = name_
+        self.age = age_
+
+    def __str__(self):
+        return "#1"Name: %s,age: %d" %(self.name, self.age)"
+               "#2{number}: Name: {0.name}, age: {0.age}.format(self,number = 2)"
+               "#3{1+1+1}: Name: {self.name},age : {self.age + 2:x}""
+               "#4 tmp = Template("#$number: Name: $name,age: $age")
+               temp.substitute(self.name,self.age)
+
+Kirill = Person("Kirill",20)
+print(Kirill)
+'''
+
+from string import Template--
+class Kotik:
+    def __init__(self,name,age,costume,toy):
+        self.name = name
+        self.age = age
+        self.costume = costume
+        self.toy = toy
+        assert age > 0, "Невозможный возраст"
+
+    def __str__(self):
+        return "Name: %s,age: %d, costume: %s, toy: %s" %(self.name, self.age,self.costume,self.toy)
+
+    '''def __str__(self):
+        return "{number}: Name: {0.name}, age: {0.age}, costume: {0.costume},toy: {0.toy}".format(self,number = 2)'''
+
+    '''def __str__(self):
+        return f"{1+1+1}: Name: {self.name},age: {self.age}, costume: {self.costume}, toy: {self.toy}"'''
+
+    '''def __str__(self):
+        temp = Template("Name: $name, age: $age, costume: $costume, toy: $toy")
+        return temp.substitute(name = self.name, age = self.age, costume = self.costume, toy = self.toy)'''
+
+Mysia = Kotik("Муся",-1,"Пират","Мышка")
+print(Mysia)
+class MyException(Exception):
+    def init(self):
+        print("MyException")
+
+try:
+    print("Enter the number")
+    n = int(input())
+    #raise TypeError from KeyError
+    assert n >= 0, "Negative n"
+    raise MyException
+except ZeroDivisionError:
+    print("Деление на ноль")
+except (KeyError, IndexError):
+    print("Ошибка индексации")
+except MyException:
+    print("MyException")
+    raise
+except Exception:
+    print("Другая ошибка")
+else:
+    print("Нет ошибок")
+finally:
+    print("Выполнить в любом случае")
