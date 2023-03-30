@@ -1,0 +1,21 @@
+import requests
+from bs4 import BeautifulSoup as bs
+import numpy as np
+
+url = "https://world-weather.ru/pogoda/russia/gelendzhik/"
+headers_ = {'User-Agent': 'Chrome/39.0.2171.95'}
+months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+for month in months:
+    temperature_list = []
+    url_ = url + month + '-2022/'
+    data = requests.get(url_, headers=headers_)
+    data_ = bs(data.content,'html.parser')
+    month_data = data_.find('ul', class_='ww-month')
+    temperature_list += [int(elem.text[:-1]) for elem in month_data.find_all('span')]
+    temperature_array = np.array(temperature_list)
+    print(f"{month}:\n" 
+          f"Максимальная температура: {np.max(temperature_array)}\n"
+          f"Средняя температура: {np.mean(temperature_array):.2f})\n"
+          f"Минимальная температура: {np.min(temperature_array)}\n"
+          f"Дисперсия:{np.var(temperature_array):.2f}\n"
+          f"Стандартное отклонение: {np.std(temperature_array):.2f}\n\n\n")
